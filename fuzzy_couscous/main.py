@@ -34,7 +34,7 @@ def cli():
             project_name,
             "--template",
             get_repo_url(args.repo, args.branch),
-            "-e=py,html,toml,md",
+            "-e=py,html,toml,md,json",
         ]
     )
 
