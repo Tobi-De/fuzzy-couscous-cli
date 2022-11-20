@@ -51,6 +51,7 @@ def cli():
     # create a .env file
     env_file = new_project_dir / ".env"
     env_file.write_text(
+        f"DJANGO_DEBUG=True\n"
         f"DJANGO_SECRET_KEY={secrets.token_urlsafe(32)}\n"
         "DJANGO_ALLOWED_HOSTS=*\n"
         f"DATABASE_URL=postgres:///{project_name}"
