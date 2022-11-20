@@ -2,6 +2,7 @@ import argparse
 import subprocess
 from pathlib import Path
 import shutil
+import secrets
 
 
 def get_repo_url(repo: str, branch: str):
@@ -46,6 +47,14 @@ def cli():
     project_dir = project_root_new_dir / project_name
     new_project_dir = Path() / project_name
     shutil.move(project_dir, new_project_dir)
+
+    # create a .env file
+    env_file = new_project_dir / ".env"
+    env_file.write_text(
+        f"DJANGO_SECRET_KEY={secrets.token_urlsafe(32)}\n"
+        "DJANGO_ALLOWED_HOSTS=*\n"
+        f"DATABASE_URL=postgres:///{project_name}"
+    )
 
     # delete the root dir
     shutil.rmtree(project_root_new_dir)
