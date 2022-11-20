@@ -3,7 +3,9 @@ import subprocess
 from pathlib import Path
 import shutil
 
-REPO_URL = "https://github.com/Tobi-De/fuzzy-couscous"
+
+def get_repo_url(repo: str, branch: str):
+    return f"https://github.com/{repo}/archive/{branch}.zip"
 
 
 def cli():
@@ -18,9 +20,9 @@ def cli():
     )
     parser.add_argument("project_name")
     parser.add_argument("-b", "--branch", default="main")
+    parser.add_argument("-r", "--repo", default="Tobi-De/fuzzy-couscous")
     args = parser.parse_args()
 
-    url = REPO_URL + f"/archive/{args.branch}.zip"
     project_name = args.project_name.strip().replace(" ", "_")
 
     # run the django-admin command
@@ -30,7 +32,7 @@ def cli():
             "startproject",
             project_name,
             "--template",
-            url,
+            get_repo_url(args.repo, args.branch),
             "-e=py,html,toml,md",
         ]
     )
