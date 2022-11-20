@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "fuzzy-couscous"
+version = "0.1.0"
+description = "Generate a django project from the fuzzy-couscous template."
+authors = ["Tobi-De <tobidegnon@proton.me>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "fuzzy_couscous"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.scripts]
+fuzzy-couscous = "fuzzy_couscous.main:cli"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
