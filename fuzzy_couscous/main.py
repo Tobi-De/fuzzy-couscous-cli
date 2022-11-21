@@ -55,6 +55,8 @@ def cli():
         f"DJANGO_SECRET_KEY={secrets.token_urlsafe(32)}\n"
         "DJANGO_ALLOWED_HOSTS=*\n"
         f"DATABASE_URL=postgres:///{project_name}"
+        f"DJANGO_SUPERUSER_EMAIL="
+        f"DJANGO_SUPERUSER_PASSWORD="
     )
 
     # delete the root dir
