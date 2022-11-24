@@ -5,6 +5,11 @@ import shutil
 import secrets
 
 
+SUCCESS = "\x1b[1;32m [SUCCESS]: "
+INFO = "\x1b[1;33m [INFO]: "
+TERMINATOR = "\x1b[0m"
+
+
 def get_repo_url(repo: str, branch: str):
     return f"https://github.com/{repo}/archive/{branch}.zip"
 
@@ -61,3 +66,10 @@ def cli():
 
     # delete the root dir
     shutil.rmtree(project_root_new_dir)
+
+    print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
+    print(
+        INFO
+        + "If you like the project consider dropping a star at https://github.com/Tobi-De/fuzzy-couscous"
+        + TERMINATOR
+    )
