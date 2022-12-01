@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fuzzy-couscous"
-version = "0.10.0"
+version = "1.0.0"
 description = "Generate a django project from the fuzzy-couscous template."
 authors = ["Tobi-De <tobidegnon@proton.me>"]
 license = "MIT"
