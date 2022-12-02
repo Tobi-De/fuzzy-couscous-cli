@@ -75,7 +75,7 @@ def write_env_file(args):
                 config[key] = input(f"{key}: ")
 
     # create .env file
-    env_file = Path() / ".env"
+    env_file = Path() / args.output_file
     env_file.write_text("")
 
     # set env values
@@ -114,6 +114,12 @@ def cli():
     )
     parser_env.add_argument(
         "-f", "--fill-missing", action="store_true", help="Fill missing values"
+    )
+    parser_env.add_argument(
+        "-o",
+        "--output-file",
+        default=".env",
+        help="The output filename, default to .env",
     )
     parser_env.set_defaults(handler=write_env_file)
 
